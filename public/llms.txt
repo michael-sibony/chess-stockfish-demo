@@ -17,9 +17,13 @@ sans serveur d'analyse.
 
 ## Liens
 
-- Code source: https://github.com/michael-sibony/chess-stockfish-demo
-- Autres dépôts publics: https://github.com/michael-sibony
-- Application publiée sur l'App Store: https://apps.apple.com/fr/app/mon-lien-immobilier/id6770486787
+- [Code source](https://github.com/michael-sibony/chess-stockfish-demo): le
+  dépôt public de cette démonstration, avec ses 25 tests.
+- [Dépôts publics](https://github.com/michael-sibony): les autres projets de
+  l'auteur, en TypeScript, Java, C# et Swift.
+- [Mon Lien Immobilier](https://apps.apple.com/fr/app/mon-lien-immobilier/id6770486787):
+  une application publiée sur l'App Store, construite et maintenue par l'auteur.
+- [La démonstration](https://chess-mvp.vercel.app): la page elle même.
 
 ## Licence
 
