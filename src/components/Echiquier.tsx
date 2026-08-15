@@ -30,6 +30,28 @@ import { NIVEAUX, niveauParId } from "@/lib/niveaux";
 type Promotion = { depuis: Square; vers: Square };
 type Glisse = { depuis: Square; x: number; y: number; piece: Piece };
 
+/**
+ * Habillage des pièces.
+ *
+ * Les glyphes Unicode blancs (♙, ♖) sont dessinés en contour, pas en aplat :
+ * coloriés en blanc sur une case claire, il ne reste qu'une ombre portée et la
+ * pièce devient illisible. Un contour foncé posé au trait règle le problème
+ * sans changer de jeu de glyphes, et sans faire reposer la lecture sur la
+ * seule luminosité de la case.
+ */
+const STYLE_PIECE: Record<"w" | "b", React.CSSProperties> = {
+  w: {
+    color: "#ffffff",
+    WebkitTextStroke: "0.055em #1c1917",
+    paintOrder: "stroke fill",
+  },
+  b: {
+    color: "#1c1917",
+    WebkitTextStroke: "0.03em rgba(255,255,255,.45)",
+    paintOrder: "stroke fill",
+  },
+};
+
 const PIECES_PROMOTION = [
   { code: "q", nom: "Dame" },
   { code: "r", nom: "Tour" },
@@ -357,14 +379,7 @@ export default function Echiquier() {
                 ].join(" ")}
               >
                 {c.piece && !enCoursDeGlisse && (
-                  <span
-                    aria-hidden="true"
-                    className={
-                      c.piece.couleur === "w"
-                        ? "text-white drop-shadow-[0_1px_1px_rgba(0,0,0,.85)]"
-                        : "text-stone-900"
-                    }
-                  >
+                  <span aria-hidden="true" style={STYLE_PIECE[c.piece.couleur]}>
                     {glyphe(c.piece)}
                   </span>
                 )}
@@ -464,13 +479,7 @@ export default function Echiquier() {
           className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 text-5xl"
           style={{ left: glisse.x, top: glisse.y }}
         >
-          <span
-            className={
-              glisse.piece.couleur === "w"
-                ? "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,.9)]"
-                : "text-stone-900 drop-shadow-[0_1px_2px_rgba(255,255,255,.5)]"
-            }
-          >
+          <span style={STYLE_PIECE[glisse.piece.couleur]}>
             {glyphe(glisse.piece)}
           </span>
         </span>
