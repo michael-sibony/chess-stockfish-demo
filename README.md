@@ -4,7 +4,7 @@ Une partie d'échecs contre un moteur, dans le navigateur, sans serveur
 d'analyse. Les règles sont tenues par `chess.js`, l'adversaire est **Stockfish
 18 compilé en WebAssembly** qui tourne dans un Web Worker.
 
-Démonstration en ligne : **https://chess-mvp-sibony.vercel.app**
+Démonstration en ligne : **https://chess-mvp.vercel.app**
 
 Ce dépôt ne cherche pas à être un jeu d'échecs complet. Il montre la couche qui
 décide de la qualité d'un jeu d'échecs, le plateau et le moteur, et les quelques

@@ -1,0 +1,27 @@
+# Échiquier jouable, Stockfish sur l'appareil
+
+Démonstration technique de Michael Sibony, développeur indépendant à Paris.
+Une partie d'échecs contre un moteur, jouée entièrement dans le navigateur,
+sans serveur d'analyse.
+
+## Ce que contient la page
+
+- Un échiquier jouable. Les règles sont tenues par chess.js, l'adversaire est
+  Stockfish 18 compilé en WebAssembly et exécuté dans un Web Worker.
+- Cinq niveaux de force, de 800 à 2400 Elo. Sous 1320 Elo la force passe par
+  l'option UCI Skill Level, au dessus par UCI_LimitStrength et UCI_Elo.
+- Le coup se joue au glisser déposer en Pointer Events, à l'appui simple, ou
+  au clavier seul. Chaque case est un bouton nommé, par exemple
+  « d1, dame blanche ».
+- Export de la position en FEN, de la partie en PGN, et chargement d'une FEN.
+
+## Liens
+
+- Code source: https://github.com/michael-sibony/chess-stockfish-demo
+- Autres dépôts publics: https://github.com/michael-sibony
+- Application publiée sur l'App Store: https://apps.apple.com/fr/app/mon-lien-immobilier/id6770486787
+
+## Licence
+
+Le code de la démonstration est publié sur GitHub. Stockfish, embarqué dans
+public/moteur, est distribué sous licence GPL v3.
